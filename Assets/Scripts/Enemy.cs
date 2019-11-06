@@ -2,23 +2,20 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Enemy : MonoBehaviour
-{
-    public float speed=5.0f;
+public class Enemy : MonoBehaviour {
+    public float speed = 5.0f;
     // Start is called before the first frame update
-    void Start()
-    {
-        
+    void Start() {
+
     }
 
     // Update is called once per frame
-    void Update()
-    {
+    void Update() {
         transform.Rotate(1f, 1f, 1f);
-        transform.Translate(0, 0, -speed*Time.deltaTime,Space.World);
-        if (transform.position.z < -30.0)
-        {
-            Destroy(gameObject);
+        transform.Translate(0, 0, -speed * Time.deltaTime, Space.World);
+        if (transform.position.z < -25.0f) {
+            GameObject.FindObjectOfType<GameController>().GameOver();
+
         }
     }
 }
